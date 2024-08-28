@@ -80,13 +80,15 @@ double Pingouin::tempsPourParcourirPiste() const {
     double distanceGlisse = 15.0; // mètres
     double distancePlat = 20.0;   // mètres
     double distanceNage = 50.0;   // mètres
+    double distancePlat2 = 15.0; // mètres
     double vitesseGlisse = getVitesseGlisse(); // m/s
     double vitesseMarche = getVitesseMarche(); // m/s
     double vitesseNage = getVitesseNage();     // m/s
 
+
     // Calcul des temps pour chaque segment de la piste
     double tempsGlisse = distanceGlisse / vitesseGlisse;
-    double tempsPlatMarche = distancePlat / vitesseMarche;
+    double tempsPlatMarche = distancePlat / vitesseMarche / distancePlat2 ;
     double tempsNage = distanceNage / vitesseNage;
     double tempsPlatMarcheFinal = distancePlat / vitesseMarche;
 
