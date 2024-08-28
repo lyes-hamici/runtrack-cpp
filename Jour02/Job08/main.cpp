@@ -11,24 +11,18 @@ int main() {
         auto p5 = std::make_shared<Pingouin>("Commandant", 6.0, 1.2, 2.5);
         auto p6 = std::make_shared<Pingouin>("Sifli", 2.0, 0.5, 2.0);
 
-        // Ajouter des entrées au journal
-        p1->ajouterEntreeJournal("2024-08-28", "Noot , Noot ! Noot , Noot !");
-        p1->ajouterEntreeJournal("2024-08-29", "Noot , Noot , Noot , Noot ! Noot , Noot , Noot , Noot ?!?!?!");
+        // Ajouter des amis
+        p1->ajouterAmi(p2);
+        p1->ajouterAmi(p3);
 
-        // Afficher le journal
-        p1->afficherJournal();
+        // Afficher les amis
+        p1->afficherAmis();
 
-        // Modifier une entrée du journal
-        p1->modifierEntreeJournal("2024-08-29", "Noot Noot Noot , Noot !");
-        p1->afficherJournal();
-
-        // Supprimer une entrée du journal
-        p1->supprimerEntreeJournal("2024-08-28");
-        p1->afficherJournal();
-
+        // Retirer un ami
+        p1->retirerAmi(p2);
+        std::cout << "Apres avoir retirer un ami :" << std::endl;
+        p1->afficherAmis();
     }
-
-    
 
     // Ici, tous les Pingouins sont sortis du scope, donc supprimés
 

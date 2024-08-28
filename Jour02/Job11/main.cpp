@@ -1,23 +1,23 @@
-#include <iostream>
-
-// Fonction pour échanger les valeurs de deux entiers en utilisant des références
-void swapValues(int& a, int& b) {
-    int temp = a; // Stocker la valeur de 'a' dans une variable temporaire
-    a = b;        // Copier la valeur de 'b' dans 'a'
-    b = temp;     // Copier la valeur temporaire (ancienne valeur de 'a') dans 'b'
-}
+#include "TreasureMap.hpp"
 
 int main() {
-    // Exemple d'utilisation de la fonction swapValues
-    int x = 10;
-    int y = 20;
+    TreasureMap carteDesTresors;
 
-    std::cout << "Avant l'échange : x = " << x << ", y = " << y << std::endl;
+    // Ajouter des emplacements de nourriture
+    carteDesTresors.ajouterEmplacement("Banquise Nord");
+    carteDesTresors.ajouterEmplacement("Chambre d'Andy");
+    carteDesTresors.ajouterEmplacement("Zoo de madagascar");
 
-    // Appel de la fonction pour échanger les valeurs de x et y
-    swapValues(x, y);
+    // Afficher les emplacements de nourriture
+    carteDesTresors.afficherEmplacements();
 
-    std::cout << "Après l'échange : x = " << x << ", y = " << y << std::endl;
+    // Vérifier si un emplacement est présent
+    std::string emplacementAChercher = "Banquise Nord";
+    if (carteDesTresors.contientEmplacement(emplacementAChercher)) {
+        std::cout << emplacementAChercher << " est present sur la carte." << std::endl;
+    } else {
+        std::cout << emplacementAChercher << " n'est pas present sur la carte." << std::endl;
+    }
 
     return 0;
 }
